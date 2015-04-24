@@ -6,6 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash_screen">Chuletillas</string>
     <string name="descChuletillasSplashScreen">Splash Screen Chuletillas App</string>
-    
+    <string name="logoInicioDescripcion">Logo de la pantalla de inicio</string>
+    <string name="tituloInicioDescripcion">Titulo de la pantalla de inicio</string>
 
 </resources>
