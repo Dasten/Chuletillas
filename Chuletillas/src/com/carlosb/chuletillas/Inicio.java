@@ -2,21 +2,15 @@ package com.carlosb.chuletillas;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.graphics.Path;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.view.View;
 import android.widget.Toast;
 
@@ -34,7 +28,6 @@ public class Inicio extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-        
         
     }
 
@@ -55,16 +48,15 @@ public class Inicio extends Activity {
             if (resultCode == RESULT_OK) {
  
                 String ruta = data.getData().getPath();
-				Toast.makeText(this, "Ruta del fichero: " + ruta,Toast.LENGTH_LONG).show();
+                
+				//Toast.makeText(this, "Ruta del fichero: " + ruta,Toast.LENGTH_LONG).show();
 				
 				if(isChuletaExtensionValid(ruta, EXTENSION_TYPE_1)){
 					chuletaCargada = crearChuleta(ruta);					
 					isChuletaCargada = true;
 				}else{
-					Toast.makeText(this, "Chuleta no valida, comprueba que la extension es ." + EXTENSION_TYPE_1,Toast.LENGTH_LONG).show();
+					Toast.makeText(this, "Chuleta no valida, comprueba que la extensión es ." + EXTENSION_TYPE_1,Toast.LENGTH_LONG).show();
 				}
-				
-				
 				
             }
         }
@@ -92,10 +84,10 @@ public class Inicio extends Activity {
     	
     	try{
     		contenido = leerChuleta(pathChuleta);
-    		//contenido = leerTextoArchivo(pathChuleta);
-    		System.out.println(contenido);
+    		//System.out.println(contenido);
     	}catch (Exception e){
     		System.out.println("Error en la lectura de la chuleta: " + e);
+    		Toast.makeText(this, "Error en la lectura de la chuleta, inténtalo de nuevo o prueba con otro archivo.",Toast.LENGTH_LONG).show();
     	}
     	 
     	Chuleta miChuleta = new Chuleta(pathChuleta, nombreFichero, tituloChuleta, contenido);
@@ -118,7 +110,6 @@ public class Inicio extends Activity {
 	            line = br.readLine();
 	        }
 	        return sb.toString();
-	        //return (new String(sb.toString().getBytes("UTF-8"), "UTF-8"));
 	    } finally {
 	        br.close();
 	    }
@@ -126,37 +117,11 @@ public class Inicio extends Activity {
 	
 	
 	
-	public void crearNotificacion(){
-		
-		int notificationId = 001;
-		
-        NotificationCompat.BigTextStyle bigStyle = new NotificationCompat.BigTextStyle();
-        bigStyle.bigText(chuletaCargada.getContenido());
 
-        NotificationCompat.Builder notificationBuilder =
-                new NotificationCompat.Builder(this)
-        						.setSmallIcon(R.drawable.ic_launcher)
-        						.setLargeIcon(BitmapFactory.decodeResource(
-        								getResources(), R.drawable.ic_launcher))
-                        .setContentTitle(chuletaCargada.getTitulo())
-                        .setStyle(bigStyle);
-
-
-
-        // Get an instance of the NotificationManager service
-        NotificationManagerCompat notificationManager =
-                NotificationManagerCompat.from(this);
-
-        // Build the notification and issues it with notification manager.
-        notificationManager.notify(notificationId, notificationBuilder.build());
-		
-
-	}
-	
 	public void onClickButtonTestNot (View v){
 		
 		if(isChuletaCargada){
-			crearNotificacion();
+			//crearNotificacion();
 			Intent intentActivityService = new Intent(Inicio.this,
 					ServiceActivity.class);
 			
@@ -165,11 +130,9 @@ public class Inicio extends Activity {
 			startActivity(intentActivityService);
 			
 		}else{
-			
+			Toast.makeText(this, "Selecciona una Chuleta en la memoria primero para continuar.",Toast.LENGTH_LONG).show();
 		}
 		
 	}
-    
-    
     
 }

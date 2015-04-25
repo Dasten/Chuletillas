@@ -3,7 +3,8 @@ package com.carlosb.chuletillas;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.widget.Toast;
 
 public class AlarmReceiver extends BroadcastReceiver {
@@ -14,19 +15,34 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context arg0, Intent arg1) {
     	
     	chuletilla = (Chuleta) arg1.getExtras().getSerializable("CHULETA_PARAMETRO");
-    	
-    	/*
-    	Bundle extras = arg1.getExtras();
-		if(extras != null){
-			chuletilla = (Chuleta) extras.getSerializable("CHULETA_PARAMETRO");
-		}
-		*/
-    	
-    	
-    	
-        // For our recurring task, we'll just display a message
-        Toast.makeText(arg0, "I'm running || " + chuletilla.getTitulo(), Toast.LENGTH_SHORT).show();
-
+	
+        Toast.makeText(arg0, "Generando chuleta... " + chuletilla.getTitulo(), Toast.LENGTH_SHORT).show();
+        crearNotificacion(arg0);
     }
+    
+    
+	public void crearNotificacion(Context context){
+		
+		int notificationId = 001;
+		
+        NotificationCompat.BigTextStyle bigStyle = new NotificationCompat.BigTextStyle();
+        bigStyle.bigText(chuletilla.getContenido());
+
+        NotificationCompat.Builder notificationBuilder =
+                new NotificationCompat.Builder(context)
+        						.setSmallIcon(R.drawable.ic_launcher)
+        						//.setLargeIcon(BitmapFactory.decodeResource(
+        								//getResources(), R.drawable.ic_launcher))
+                        .setContentTitle(chuletilla.getTitulo())
+                        .setStyle(bigStyle);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
+
+        notificationManager.notify(notificationId, notificationBuilder.build());
+
+	}
+	
+	
+	
 
 }
