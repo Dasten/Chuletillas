@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class ServiceActivity extends Activity {
@@ -22,6 +23,8 @@ public class ServiceActivity extends Activity {
 	private PendingIntent pendingIntent;
 	private AlarmManager manager;
 	private boolean isAlarmRunning;
+	
+	ImageView logo_servicio;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,8 @@ public class ServiceActivity extends Activity {
 			chulletaToNotify = (Chuleta) extras.getSerializable("CHULETA_PARAMETRO");
 		}
 		
-		System.out.println(chulletaToNotify.getTitulo());
+		 logo_servicio = (ImageView) findViewById(R.id.logo_servicio);
+		
 			
 		Intent alarmIntent = new Intent(this, AlarmReceiver.class);
 		
@@ -61,11 +65,13 @@ public class ServiceActivity extends Activity {
     	if(isAlarmRunning){
     		if (manager != null) {
                 manager.cancel(pendingIntent);
+                logo_servicio.setImageResource(R.drawable.logo_servicio_off);
                 Toast.makeText(this, "Chuletillas detenido, seguro que has aprobado :D", Toast.LENGTH_SHORT).show();
                 isAlarmRunning = false;
             }
     	}else{
     		startAlarm();
+    		logo_servicio.setImageResource(R.drawable.logo_servicio_on);
     		isAlarmRunning = true;
     	}    
     }
