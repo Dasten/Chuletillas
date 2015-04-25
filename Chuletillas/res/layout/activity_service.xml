@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/backgroundInicio"
+    android:id="@+id/backgroundService"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#27b4e7" >
@@ -8,14 +8,15 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-
+        
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:orientation="vertical" >
-
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,11 +28,11 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/tituloInicioDescripcion"
+                    android:contentDescription="@string/tituloServicioDescripcion"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/titulo_inicio" />
+                    android:src="@drawable/titulo_servicio" />
             </LinearLayout>
-
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,44 +45,28 @@
                     android:layout_marginBottom="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
-                    android:contentDescription="@string/logoInicioDescripcion"
+                    android:contentDescription="@string/logoServicioDescripcion"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/logo_inicio" />
+                    android:src="@drawable/logo_servicio" />
             </LinearLayout>
 
-            <LinearLayout
+          	<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
                 android:gravity="top|center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:layout_marginBottom="25dp" >
 
                 <Button
-                    android:id="@+id/buttonExaminar"
+                    android:id="@+id/buttonStartStop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="25dp"
-                    android:onClick="onClickButtonExaminar" />
+                    android:onClick="onClickButtonStartStop" />
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:gravity="top|center"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/buttontest"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="25dp"
-                    android:onClick="onClickButtonTestNot" />
-            </LinearLayout>
+            
         </LinearLayout>
     </ScrollView>
 

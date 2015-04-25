@@ -8,5 +8,8 @@
     <string name="descChuletillasSplashScreen">Splash Screen Chuletillas App</string>
     <string name="logoInicioDescripcion">Logo de la pantalla de inicio</string>
     <string name="tituloInicioDescripcion">Titulo de la pantalla de inicio</string>
+    <string name="title_activity_service">Titulo de la pantalla de servicio</string>
+    <string name="tituloServicioDescripcion">Titulo de la pantalla de servicio</string>
+    <string name="logoServicioDescripcion">Logo de la pantalla de servicio</string>
 
 </resources>

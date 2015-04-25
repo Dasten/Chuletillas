@@ -26,7 +26,9 @@ public class Inicio extends Activity {
 	private static final int ABRIRFICHERO_RESULT_CODE = 1;
 	private static final String EXTENSION_TYPE_1 = "txt";
 	 
+	boolean isChuletaCargada = false;
 	Chuleta chuletaCargada;
+	String respawn = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,17 +56,12 @@ public class Inicio extends Activity {
  
                 String ruta = data.getData().getPath();
 				Toast.makeText(this, "Ruta del fichero: " + ruta,Toast.LENGTH_LONG).show();
-				//System.out.println(ruta);
 				
 				if(isChuletaExtensionValid(ruta, EXTENSION_TYPE_1)){
-					chuletaCargada = crearChuleta(ruta);
-					
-					// #####################  Notificacion de prueba  ###############
-					//crearNotificacion(chuletaCargada);
-					// #####################
-					
+					chuletaCargada = crearChuleta(ruta);					
+					isChuletaCargada = true;
 				}else{
-					Toast.makeText(this, "Chuleta no valida, comprueba que la extension es " + EXTENSION_TYPE_1,Toast.LENGTH_LONG).show();
+					Toast.makeText(this, "Chuleta no valida, comprueba que la extension es ." + EXTENSION_TYPE_1,Toast.LENGTH_LONG).show();
 				}
 				
 				
@@ -158,7 +155,18 @@ public class Inicio extends Activity {
 	
 	public void onClickButtonTestNot (View v){
 		
-		crearNotificacion();
+		if(isChuletaCargada){
+			crearNotificacion();
+			Intent intentActivityService = new Intent(Inicio.this,
+					ServiceActivity.class);
+			
+			intentActivityService.putExtra("CHULETA_PARAMETRO", chuletaCargada);
+			intentActivityService.putExtra("RESPAWN_PARAMETRO", respawn);
+			startActivity(intentActivityService);
+			
+		}else{
+			
+		}
 		
 	}
     

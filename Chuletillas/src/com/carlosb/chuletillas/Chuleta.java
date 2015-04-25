@@ -1,6 +1,8 @@
 package com.carlosb.chuletillas;
 
-public class Chuleta {
+import java.io.Serializable;
+
+public class Chuleta implements Serializable {
 	
 	private String path;
 	private String nombreFcihero;
