@@ -20,6 +20,8 @@
       	android:name="com.carlosb.chuletillas.NotificationService"
        	android:icon="@drawable/ic_launcher" />
         
+        <receiver android:name="com.carlosb.chuletillas.AlarmReceiver"></receiver>
+        
         <activity
             android:name=".SplashScreen"
             android:label="@string/app_name"
