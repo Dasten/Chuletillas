@@ -1,5 +1,10 @@
 package com.carlosb.chuletillas;
 
+/**
+ * @author Carlos Belmonte Ceniza
+ * Chuletillas App for Android
+ */
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;

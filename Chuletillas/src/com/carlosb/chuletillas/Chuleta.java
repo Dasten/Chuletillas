@@ -1,5 +1,10 @@
 package com.carlosb.chuletillas;
 
+/**
+ * @author Carlos Belmonte Ceniza
+ * Chuletillas App for Android
+ */
+
 import java.io.Serializable;
 
 public class Chuleta implements Serializable {

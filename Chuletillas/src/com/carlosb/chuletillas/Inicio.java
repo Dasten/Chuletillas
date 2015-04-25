@@ -1,5 +1,10 @@
 package com.carlosb.chuletillas;
 
+/**
+ * @author Carlos Belmonte Ceniza
+ * Chuletillas App for Android
+ */
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -54,6 +59,7 @@ public class Inicio extends Activity {
 				if(isChuletaExtensionValid(ruta, EXTENSION_TYPE_1)){
 					chuletaCargada = crearChuleta(ruta);					
 					isChuletaCargada = true;
+					Toast.makeText(this, "Chuleta cargada correctamente.", Toast.LENGTH_LONG).show();
 				}else{
 					Toast.makeText(this, "Chuleta no valida, comprueba que la extensión es ." + EXTENSION_TYPE_1,Toast.LENGTH_LONG).show();
 				}

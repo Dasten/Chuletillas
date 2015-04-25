@@ -1,5 +1,10 @@
 package com.carlosb.chuletillas;
 
+/**
+ * @author Carlos Belmonte Ceniza
+ * Chuletillas App for Android
+ */
+
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;

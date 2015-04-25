@@ -11,5 +11,7 @@
     <string name="title_activity_service">Titulo de la pantalla de servicio</string>
     <string name="tituloServicioDescripcion">Titulo de la pantalla de servicio</string>
     <string name="logoServicioDescripcion">Logo de la pantalla de servicio</string>
+    <string name="str_Intervalo_Label">Intervalo: </string>
+    <string name="str_minutos_intervalo">10</string>
 
 </resources>
