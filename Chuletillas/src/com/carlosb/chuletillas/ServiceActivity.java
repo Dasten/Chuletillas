@@ -33,7 +33,7 @@ public class ServiceActivity extends Activity {
 		
 		Bundle extras = getIntent().getExtras();
 		if(extras != null){
-			respawn = Integer.parseInt(extras.getString("RESPAWN_PARAMETRO"));
+			respawn = extras.getInt("RESPAWN_PARAMETRO");
 			chulletaToNotify = (Chuleta) extras.getSerializable("CHULETA_PARAMETRO");
 		}
 		
@@ -44,10 +44,6 @@ public class ServiceActivity extends Activity {
 		
 		alarmIntent.putExtra("CHULETA_PARAMETRO", chulletaToNotify);
 	    pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
-	    		
-	    // ##########################
-	    respawn = 10000;
-	    // ##########################
 	    
 	    isAlarmRunning = false;
 	}
@@ -56,7 +52,7 @@ public class ServiceActivity extends Activity {
 	public void startAlarm() {
 	    manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 
-	    manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), respawn, pendingIntent);
+	    manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), (respawn  * 60 * 1000), pendingIntent);
 	    Toast.makeText(this, "Iniciando Chuletillas, ya puedes guardar el movil ;)", Toast.LENGTH_SHORT).show();
 	}
 	

@@ -21,7 +21,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     	
     	chuletilla = (Chuleta) arg1.getExtras().getSerializable("CHULETA_PARAMETRO");
 	
-        Toast.makeText(arg0, "Generando chuleta... " + chuletilla.getTitulo(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(arg0, "Generando chuleta... " + chuletilla.getTitulo(), Toast.LENGTH_SHORT).show();
         crearNotificacion(arg0);
     }
     

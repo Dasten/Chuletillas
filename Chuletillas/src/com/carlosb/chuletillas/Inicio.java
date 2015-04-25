@@ -12,11 +12,11 @@ import java.io.InputStreamReader;
 
 import android.app.Activity;
 import android.content.Intent;
-
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -27,12 +27,16 @@ public class Inicio extends Activity {
 	 
 	boolean isChuletaCargada = false;
 	Chuleta chuletaCargada;
-	String respawn = "1";
+	int respawn = 10;
+	
+	EditText widgetIntervalo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+        
+        widgetIntervalo = (EditText)findViewById(R.id.box_intervalo_notificacion);
         
     }
 
@@ -126,17 +130,22 @@ public class Inicio extends Activity {
 
 	public void onClickButtonTestNot (View v){
 		
-		if(isChuletaCargada){
-			//crearNotificacion();
-			Intent intentActivityService = new Intent(Inicio.this,
-					ServiceActivity.class);
-			
-			intentActivityService.putExtra("CHULETA_PARAMETRO", chuletaCargada);
-			intentActivityService.putExtra("RESPAWN_PARAMETRO", respawn);
-			startActivity(intentActivityService);
-			
+		respawn =  Integer.parseInt(widgetIntervalo.getText().toString());
+		
+		if(respawn > 1 && respawn < 60){
+			if(isChuletaCargada){
+				Intent intentActivityService = new Intent(Inicio.this,
+						ServiceActivity.class);
+				
+				intentActivityService.putExtra("CHULETA_PARAMETRO", chuletaCargada);
+				intentActivityService.putExtra("RESPAWN_PARAMETRO", respawn);
+				startActivity(intentActivityService);
+				
+			}else{
+				Toast.makeText(this, "Selecciona una Chuleta en la memoria primero para continuar.",Toast.LENGTH_LONG).show();
+			}
 		}else{
-			Toast.makeText(this, "Selecciona una Chuleta en la memoria primero para continuar.",Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "El intervalo de tiempo tiene que ser mayor a 1 min y menor a 60 min.",Toast.LENGTH_LONG).show();
 		}
 		
 	}
