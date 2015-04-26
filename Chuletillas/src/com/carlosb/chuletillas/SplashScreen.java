@@ -5,6 +5,9 @@ package com.carlosb.chuletillas;
  * Chuletillas App for Android
  */
 
+
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +21,12 @@ public class SplashScreen extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash_screen);
+		
+		try {
+			IOFileChuletas.crearEjemplos();
+		} catch (IOException e) {
+			System.out.println("Error al crear la carpeta de las Chuletillas con los ejemplos -- " + e);
+		}
 		
 		new Handler().postDelayed(new Runnable() {
 			@Override
