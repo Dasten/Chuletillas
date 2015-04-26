@@ -11,11 +11,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -128,7 +130,7 @@ public class Inicio extends Activity {
 	
 	
 
-	public void onClickButtonTestNot (View v){
+	public void onClickButtonCont (View v){
 		
 		respawn =  Integer.parseInt(widgetIntervalo.getText().toString());
 		
@@ -148,6 +150,13 @@ public class Inicio extends Activity {
 			Toast.makeText(this, "El intervalo de tiempo tiene que ser mayor a 1 min y menor a 60 min.",Toast.LENGTH_LONG).show();
 		}
 		
+	}
+	
+	public void onClickButtonHelp(View v){
+		Dialog settingsDialog = new Dialog(this);
+		settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+		settingsDialog.setContentView(getLayoutInflater().inflate(R.layout.image_layout, null));
+		settingsDialog.show();
 	}
     
 }
