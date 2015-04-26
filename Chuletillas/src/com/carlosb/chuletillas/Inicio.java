@@ -27,6 +27,7 @@ public class Inicio extends Activity {
 	private static final int ABRIRFICHERO_RESULT_CODE = 1;
 	private static final String EXTENSION_TYPE_1 = "txt";
 	 
+	String ruta; 
 	boolean isChuletaCargada = false;
 	Chuleta chuletaCargada;
 	int respawn = 10;
@@ -58,7 +59,7 @@ public class Inicio extends Activity {
         case ABRIRFICHERO_RESULT_CODE:
             if (resultCode == RESULT_OK) {
  
-                String ruta = data.getData().getPath();
+                ruta = data.getData().getPath();
                 
 				//Toast.makeText(this, "Ruta del fichero: " + ruta,Toast.LENGTH_LONG).show();
 				
