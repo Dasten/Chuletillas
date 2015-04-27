@@ -5,6 +5,7 @@ package com.carlosb.chuletillas;
  * Chuletillas App for Android
  */
 
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,14 @@ public class AlarmReceiver extends BroadcastReceiver {
 		
 		int notificationId = 001;
 		
+		// #############
+		Intent notificationIntent = new Intent(context, ServiceActivity.class);
+		notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+	            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+		PendingIntent intent = PendingIntent.getActivity(context, 0,
+	            notificationIntent, 0);
+		// #############
+		
         NotificationCompat.BigTextStyle bigStyle = new NotificationCompat.BigTextStyle();
         bigStyle.bigText(chuletilla.getContenido());
 
@@ -38,7 +47,11 @@ public class AlarmReceiver extends BroadcastReceiver {
         						/*.setLargeIcon(BitmapFactory.decodeResource(
         								context.getResources(), R.drawable.logo_trans))*/
                         .setContentTitle(chuletilla.getTitulo())
+                        // #############
+                        .setContentIntent(intent)
+                        // #############
                         .setStyle(bigStyle);
+                        
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
 
