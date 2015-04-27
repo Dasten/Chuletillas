@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 public class ServiceActivity extends Activity {
 	
-	
 	private int respawn;
 	private Chuleta chulletaToNotify;
 	private PendingIntent pendingIntent;
@@ -71,6 +70,5 @@ public class ServiceActivity extends Activity {
     		isAlarmRunning = true;
     	}    
     }
-
 
 }

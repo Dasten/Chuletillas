@@ -7,6 +7,7 @@ package com.carlosb.chuletillas;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Chuleta implements Serializable {
 	
 	private String path;
@@ -51,7 +52,5 @@ public class Chuleta implements Serializable {
 		return "Chuleta [path=" + path + ", nombreFcihero=" + nombreFcihero
 				+ ", titulo=" + titulo + ", contenido=" + contenido + "]";
 	}
-	
-	
 
 }

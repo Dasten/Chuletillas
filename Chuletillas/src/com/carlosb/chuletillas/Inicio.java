@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
-
 
 public class Inicio extends Activity {
 	
@@ -42,7 +41,6 @@ public class Inicio extends Activity {
         widgetIntervalo = (EditText)findViewById(R.id.box_intervalo_notificacion);
         
     }
-
     
     public void onClickButtonExaminar(View v) {
     	Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -51,7 +49,6 @@ public class Inicio extends Activity {
     	intent.setDataAndType(uri, "file/txt");
         startActivityForResult(intent, ABRIRFICHERO_RESULT_CODE);
     }
-
  
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -108,7 +105,6 @@ public class Inicio extends Activity {
     	return miChuleta;
     }
     
-    
 	public static String leerChuleta(String path) throws IOException{
 		
 	    BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
@@ -126,11 +122,8 @@ public class Inicio extends Activity {
 	    } finally {
 	        br.close();
 	    }
-	};
+	}
 	
-	
-	
-
 	public void onClickButtonCont (View v){
 		
 		respawn =  Integer.parseInt(widgetIntervalo.getText().toString());
@@ -153,6 +146,7 @@ public class Inicio extends Activity {
 		
 	}
 	
+	@SuppressLint("InflateParams") 
 	public void onClickButtonHelp(View v){
 		Dialog settingsDialog = new Dialog(this);
 		settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);

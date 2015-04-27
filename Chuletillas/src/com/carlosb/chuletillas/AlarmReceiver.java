@@ -10,7 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
-import android.widget.Toast;
+
 
 public class AlarmReceiver extends BroadcastReceiver {
 	
@@ -25,7 +25,6 @@ public class AlarmReceiver extends BroadcastReceiver {
         crearNotificacion(arg0);
     }
     
-    
 	public void crearNotificacion(Context context){
 		
 		int notificationId = 001;
@@ -36,8 +35,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(context)
         						.setSmallIcon(R.drawable.ic_launcher)
-        						//.setLargeIcon(BitmapFactory.decodeResource(
-        								//getResources(), R.drawable.ic_launcher))
+        						/*.setLargeIcon(BitmapFactory.decodeResource(
+        								context.getResources(), R.drawable.logo_trans))*/
                         .setContentTitle(chuletilla.getTitulo())
                         .setStyle(bigStyle);
 
@@ -46,8 +45,5 @@ public class AlarmReceiver extends BroadcastReceiver {
         notificationManager.notify(notificationId, notificationBuilder.build());
 
 	}
-	
-	
-	
 
 }
