@@ -39,7 +39,7 @@ public class IOFileChuletas {
 		FileOutputStream outputStream = new FileOutputStream(outputFile);
 		
 		try {
-			  //outputStream = openFileOutput(ficheroChuleta, context.MODE_PRIVATE);
+
 			  outputStream.write(chuletaEjemplo.getContenido().getBytes());
 			  outputStream.close();
 		} catch (Exception e) {

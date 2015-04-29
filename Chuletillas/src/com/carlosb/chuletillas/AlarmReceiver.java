@@ -31,6 +31,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		int notificationId = 001;
 		
 		// #############
+		
 		Intent notificationIntent = new Intent(context, ServiceActivity.class);
 		notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
 	            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
