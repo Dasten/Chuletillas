@@ -20,6 +20,7 @@ public class IOFileChuletas {
 		
 		final File dir = new File(Environment.getExternalStorageDirectory().getPath() + nombreCarpetaChuletas);
 		
+		// Si el directorio no existe (App ejecutada por primera vez, lo creamos y metemos las dos chuletas de ejemplo)
 		if(dir.exists()==false){
 			dir.mkdirs();
 			

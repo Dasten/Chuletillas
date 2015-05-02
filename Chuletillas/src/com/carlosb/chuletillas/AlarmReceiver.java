@@ -30,8 +30,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		
 		int notificationId = 001;
 		
-		// #############
-		
+		// ############# - Intent que lanzara la Notificacion cuando le "clikeamos" - La Activity a donde vamos
 		Intent notificationIntent = new Intent(context, ServiceActivity.class);
 		notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
 	            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -48,7 +47,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         						/*.setLargeIcon(BitmapFactory.decodeResource(
         								context.getResources(), R.drawable.logo_trans))*/
                         .setContentTitle(chuletilla.getTitulo())
-                        // #############
+                        // ############# - Aqui añadimos el intent a la notificacion
                         .setContentIntent(intent)
                         // #############
                         .setStyle(bigStyle);
