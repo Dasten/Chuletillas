@@ -44,8 +44,7 @@ public class Inicio extends Activity {
     
     public void onClickButtonExaminar(View v) {
     	Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-    	Uri uri = Uri.parse(Environment.getExternalStorageDirectory().getPath()
-    	    + "/Chuletillas/");
+    	Uri uri = Uri.parse(Environment.getExternalStorageDirectory().getPath() + "/Chuletillas/");
     	intent.setDataAndType(uri, "file/txt");
         startActivityForResult(intent, ABRIRFICHERO_RESULT_CODE);
     }
@@ -94,7 +93,6 @@ public class Inicio extends Activity {
     	
     	try{
     		contenido = leerChuleta(pathChuleta);
-    		//System.out.println(contenido);
     	}catch (Exception e){
     		System.out.println("Error en la lectura de la chuleta: " + e);
     		Toast.makeText(this, "Error en la lectura de la chuleta, inténtalo de nuevo o prueba con otro archivo.",Toast.LENGTH_LONG).show();

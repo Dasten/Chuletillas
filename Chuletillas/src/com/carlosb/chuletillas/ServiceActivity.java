@@ -38,7 +38,6 @@ public class ServiceActivity extends Activity {
 		
 		 logo_servicio = (ImageView) findViewById(R.id.logo_servicio);
 		
-			
 		Intent alarmIntent = new Intent(this, AlarmReceiver.class);
 		
 		alarmIntent.putExtra("CHULETA_PARAMETRO", chulletaToNotify);
@@ -50,7 +49,6 @@ public class ServiceActivity extends Activity {
 	
 	public void startAlarm() {
 	    manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-
 	    manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), (respawn  * 60 * 1000), pendingIntent);
 	    Toast.makeText(this, "Iniciando Chuletillas, ya puedes guardar el movil ;)", Toast.LENGTH_SHORT).show();
 	}

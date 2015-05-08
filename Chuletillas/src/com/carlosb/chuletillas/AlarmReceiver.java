@@ -21,8 +21,6 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context arg0, Intent arg1) {
     	
     	chuletilla = (Chuleta) arg1.getExtras().getSerializable("CHULETA_PARAMETRO");
-	
-        //Toast.makeText(arg0, "Generando chuleta... " + chuletilla.getTitulo(), Toast.LENGTH_SHORT).show();
         crearNotificacion(arg0);
     }
     
@@ -44,8 +42,6 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(context)
         						.setSmallIcon(R.drawable.ic_launcher)
-        						/*.setLargeIcon(BitmapFactory.decodeResource(
-        								context.getResources(), R.drawable.logo_trans))*/
                         .setContentTitle(chuletilla.getTitulo())
                         // ############# - Aqui añadimos el intent a la notificacion
                         .setContentIntent(intent)
@@ -58,5 +54,4 @@ public class AlarmReceiver extends BroadcastReceiver {
         notificationManager.notify(notificationId, notificationBuilder.build());
 
 	}
-
 }

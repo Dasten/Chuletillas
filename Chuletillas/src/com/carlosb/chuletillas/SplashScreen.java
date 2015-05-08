@@ -34,7 +34,6 @@ public class SplashScreen extends Activity {
 			
 			@Override
 			public void run() {
-
 				Intent mainIntent = new Intent(SplashScreen.this, Inicio.class);
 				SplashScreen.this.startActivity(mainIntent);
 				SplashScreen.this.finish();
@@ -45,6 +44,7 @@ public class SplashScreen extends Activity {
 
 	@Override
 	public void onBackPressed() {
+		// Cerramos el activity del SplashScreen para que al darle al boton "back" no volvamos a ella.
 	   finish();
 	}
 }

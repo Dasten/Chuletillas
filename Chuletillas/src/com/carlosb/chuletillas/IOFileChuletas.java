@@ -21,12 +21,16 @@ public class IOFileChuletas {
 		final File dir = new File(Environment.getExternalStorageDirectory().getPath() + nombreCarpetaChuletas);
 		
 		// Si el directorio no existe (App ejecutada por primera vez, lo creamos y metemos las dos chuletas de ejemplo)
-		if(dir.exists()==false){
+		if(dir.exists() == false){
+			
+			// Creamos el directorio
 			dir.mkdirs();
 			
+			// Creamos las chuletas
 			Chuleta chuleta1 = crearChuletaEjemplo1(0);
 			Chuleta chuleta2 = crearChuletaEjemplo1(1);
 			
+			// Escribimos las chuletas en la memoria
 			escrbirChuletaFile(chuleta1);
 			escrbirChuletaFile(chuleta2);
 		}
@@ -40,7 +44,6 @@ public class IOFileChuletas {
 		FileOutputStream outputStream = new FileOutputStream(outputFile);
 		
 		try {
-
 			  outputStream.write(chuletaEjemplo.getContenido().getBytes());
 			  outputStream.close();
 		} catch (Exception e) {
@@ -52,7 +55,6 @@ public class IOFileChuletas {
 		
 		String tituloChuleta = "Chuleta de Ejemplo";
 		String contenidoChuleta = "Texto Chuleta de Ejemplo";
-		
 		
 		if(tipoChuleta == 0){
 			 tituloChuleta = "Los Reyes Católicos";
